@@ -211,7 +211,7 @@ class FishFrenzyGame:
         self.pestemare_sprites = pygame.sprite.Group()
         self.boss_sprites = pygame.sprite.Group()
         self.boss_spawn = False
-        self.boss_spawned = False  # Flag to track boss spawn
+        self.boss_spawned = False  
 
         # Events
         self.pestemic_event = pygame.event.custom_type()
@@ -348,6 +348,8 @@ class FishFrenzyGame:
         self.pestemij_sprites.empty()
         self.pestemare_sprites.empty()
         self.boss_sprites.empty()
+        self.boss_spawn = False
+        self.boss_spawned = False
 
     def run(self):
         running = True
@@ -390,7 +392,7 @@ class FishFrenzyGame:
                         PesteMare(pestemare_scale, (x, y), 80, (self.all_sprites, self.pestemare_sprites))
 
                     if event.type == self.boss_event and not self.boss_spawned:
-                        if self.score_plus >= 50:
+                        if self.score_plus >= 5:
                             self.boss_spawned = True
                             x, y = 1200, 360
                             Boss(boss_scale, (x, y), 400, (self.all_sprites, self.boss_sprites))
